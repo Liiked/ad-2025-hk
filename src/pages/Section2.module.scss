@@ -1,11 +1,22 @@
 @keyframes scrollSlideIn {
   0% {
-    opacity: 0.6;
-    transform: translateY(10px);
+    opacity: 0.4;
+    transform: translateY(15px) scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -63,13 +74,41 @@
       scroll-padding: 16px;
       gap: 16px;
       scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-scroll-snap-stop: always;
+      scroll-snap-stop: always;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:active {
+        transition: scroll-behavior 0.1s ease;
+      }
     }
     .scroll-item {
       width: 100%;
       margin-left: 2em;
       scroll-snap-align: center;
-      animation: scrollSlideIn 0.6s ease-out;
-      will-change: transform, opacity;
+      will-change: transform, opacity, filter;
+      transition: transform 0.4s ease-out, opacity 0.4s ease-out,
+        filter 0.4s ease-out;
+      cursor: grab;
+      opacity: 1;
+      transform: scale(1);
+      filter: brightness(1) saturate(1);
+
+      &:active {
+        cursor: grabbing;
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+      }
+
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
   .footer {
