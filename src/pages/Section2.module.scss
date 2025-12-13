@@ -36,6 +36,14 @@
   .grid-pic {
     width: 48%;
   }
+  .desc {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 2em;
+    line-height: 1.4;
+    font-size: 18px;
+  }
   .header {
     position: relative;
     text-align: center;
@@ -89,7 +97,7 @@
       }
     }
     .scroll-item {
-      width: 100%;
+      width: 90%;
       margin-left: 2em;
       scroll-snap-align: center;
       will-change: transform, opacity, filter;
@@ -119,10 +127,6 @@
     position: relative;
     img {
       margin-bottom: 2em;
-    }
-    .desc {
-      display: flex;
-      justify-content: space-between;
     }
   }
 }

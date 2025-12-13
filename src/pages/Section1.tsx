@@ -25,13 +25,18 @@ export default function Sec1() {
       </section>
       <section className={styles["footer"]}>
         <div className={styles["desc"]}>
-          <p>*1 整肌成分 胺基乙醯丙酸 (5-ALA)</p>
-          <p>*2 整肌成分 苯乙基間苯二酚 (W377)</p>
+          <p>
+            ※1：24億枚突破：2011年7月～2024年12月の累計販売枚数（当社調べ）。
+          </p>
+          <p>
+            ※2：
+            フェイスマスクブランドNo.1：富士経済「化粧品マーケティング要覧2025」パック市場・ブランドシェア
+            2024年販売実績ベース。
+          </p>
+          <p>
+            ※3：コスメアワード320冠：2015年上半期～2024年下半期のシリーズ累計受賞数。
+          </p>
         </div>
-        <p style={{ textAlign: "left" }}>
-          *3 彈力成分 合成基因重組（Decapeptide-63／Synthetic Human Gene
-          Recombinant Polypeptide-148／Hexapeptide-40）
-        </p>
       </section>
     </div>
   );

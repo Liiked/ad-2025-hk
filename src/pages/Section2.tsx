@@ -62,13 +62,16 @@ export default function Sec2() {
         const scale = 0.9 + influence * 0.15; // 0.9 - 1.05
         const brightness = 0.8 + influence * 0.3; // 0.8 - 1.1
         const translateY = (1 - influence) * 10; // 0 - 10px
+        const saturate = 0.9 + influence * 0.2; // 0.9 - 1.1
 
         // 应用动态样式
         item.style.opacity = opacity.toString();
-        item.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-        item.style.filter = `brightness(${brightness}) saturate(${
-          0.9 + influence * 0.2
-        })`;
+        item.style.transform = `scale(${
+          scale > 1 ? 1 : scale
+        }) translateY(${translateY}px)`;
+        item.style.filter = `brightness(${
+          brightness > 1 ? 1 : brightness
+        }) saturate(${saturate > 1 ? 1 : saturate})`;
       });
     };
 
@@ -129,7 +132,7 @@ export default function Sec2() {
 
         return nextIndex;
       });
-    }, 2000);
+    }, 5000);
   };
 
   const stopAutoScroll = () => {
@@ -194,11 +197,25 @@ export default function Sec2() {
           alt=""
         />
         <img src={pic4} style={{ width: "100%", marginTop: "8em" }} alt="" />
+        <div
+          className={styles["desc"]}
+          style={{
+            width: "60%",
+            position: "relative",
+            left: "-4em",
+            top: "-8em",
+          }}
+        >
+          <p>※1：調理膚況成分：源自人體脂肪間葉細胞外泌體（不含幹細胞）。</p>
+          <p>※2： 指如白玉般細緻、透亮且富有光澤的肌膚狀態。</p>
+          <p>※3：調理膚況成分：穀胱甘肽、熊果素、卵磷脂。</p>
+        </div>
         <img
           src={title}
-          style={{ width: "60%", marginTop: "10em", marginLeft: "8%" }}
+          style={{ width: "60%", marginTop: "4em", marginLeft: "8%" }}
           alt=""
         />
+
         <div ref={observerRef}>
           <div
             className={styles["scroll"]}
@@ -212,12 +229,19 @@ export default function Sec2() {
             <img className={styles["scroll-item"]} src={scroll1} alt="" />
             <img className={styles["scroll-item"]} src={scroll2} alt="" />
             <img className={styles["scroll-item"]} src={scroll3} alt="" />
+
             <img className={styles["scroll-item"]} src={scroll4} alt="" />
           </div>
         </div>
       </section>
       <section className={styles["footer"]}>
-        <img src={logo} style={{ width: "40%", marginTop: "10em" }} alt="" />
+        <div className={styles["desc"]}>
+          <p>※1 緊緻成分：人源基因重組寡肽-1（EGF）。</p>
+          <p>※2 保濕成分：神經醯胺 AP、神經醯胺 NP。</p>
+          <p>※3 保濕成分：玻尿酸、羥丙基三甲基氯化銨。</p>
+          <p>※4 保濕成分：Atelo 膠原蛋白。</p>
+        </div>
+        <img src={logo} style={{ width: "40%", marginTop: "2em" }} alt="" />
       </section>
     </div>
   );
