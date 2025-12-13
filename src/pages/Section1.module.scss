@@ -1,0 +1,51 @@
+.section {
+  position: relative;
+  height: 1880px;
+  width: 100%;
+  z-index: 1;
+  padding-bottom: 10rem;
+  .bg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    max-width: 100%;
+  }
+  .grid-pic {
+    width: 48%;
+  }
+  .header {
+    text-align: center;
+    h2 {
+      font-size: 3em;
+      font-family: serif;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    img {
+      margin-bottom: -8em;
+    }
+  }
+  .content {
+    text-align: center;
+    .grid-bottom {
+      margin-top: -12em;
+      z-index: 2;
+      position: relative;
+    }
+  }
+  .footer {
+    text-align: center;
+    padding: 0 2em;
+    font-size: 1.4em;
+    line-height: 2;
+    img {
+      width: 60%;
+      margin-bottom: 2em;
+    }
+    .desc {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,265 @@
+.section {
+  position: relative;
+  height: 6500px;
+  width: 100%;
+  z-index: 1;
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    max-width: 100%;
+  }
+  .grid-pic {
+    width: 48%;
+  }
+  .header {
+    position: relative;
+    text-align: center;
+    padding-top: 3em;
+    .feature-title {
+      position: relative;
+      top: -3em;
+      padding-bottom: 10em;
+      img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        z-index: 1;
+        top: 0;
+      }
+      h4 {
+        font-size: 4.5em;
+        position: relative;
+        z-index: 2;
+        padding-top: 2.6em;
+        font-family: serif;
+        font-weight: bold;
+        color: #7f612b;
+      }
+    }
+    img {
+      width: 92%;
+      margin-top: 2em;
+    }
+    p {
+      font-size: 2em;
+      line-height: 2;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-align: right;
+      margin-right: 15%;
+    }
+  }
+  .content {
+    padding-top: 4em;
+    width: 90%;
+    margin: 0 5%;
+    .product {
+      margin-top: 4em;
+      margin-bottom: 8em;
+      .first-title {
+        position: relative;
+        padding-bottom: 4em;
+
+        h1 {
+          font-size: 12em;
+          position: relative;
+          z-index: 2;
+          font-family: serif;
+          /* 设置文字颜色为透明 */
+          color: transparent;
+          /* 应用线性渐变背景 */
+          background-image: linear-gradient(135deg, #7fd1ff, #5b849b 40%);
+          background-clip: text;
+          &::after {
+            content: "＊";
+            font-family: cursive;
+            font-size: 0.4em;
+            vertical-align: 1.2em;
+            color: #5b849b;
+          }
+          &.noAfter {
+            &::after {
+              content: none;
+              font-size: 0px;
+            }
+          }
+        }
+
+        .shrink {
+          font-size: 0.6em;
+        }
+        .strong {
+          font-weight: bold;
+        }
+        .shrinkTitle {
+          font-size: 8em;
+          position: relative;
+          z-index: 2;
+          font-family: serif;
+          /* 设置文字颜色为透明 */
+          color: transparent;
+          /* 应用线性渐变背景 */
+          background-image: linear-gradient(135deg, #7fd1ff, #5b849b 40%);
+          background-clip: text;
+          &::after {
+            content: "＊";
+            font-family: cursive;
+            font-size: 0.4em;
+            vertical-align: 1.2em;
+            color: #5b849b;
+          }
+        }
+
+        img {
+          width: 64%;
+          position: absolute;
+          right: 0;
+          top: -10%;
+          z-index: 0;
+          margin-right: -5%;
+        }
+      }
+      .second-title {
+        margin-top: 8em;
+        margin-bottom: 2em;
+        text-align: left;
+        position: relative;
+        h4 {
+          font-size: 3em;
+          font-weight: 600;
+          font-family: serif;
+          color: #917863;
+          position: relative;
+          margin-bottom: 1.2em;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 2em;
+            height: 1px;
+            margin-left: 0.5em;
+            background-color: #7f612b;
+          }
+        }
+        h2 {
+          font-size: 4em;
+          font-family: Simsun, serif;
+          color: white;
+          padding: 0.1em;
+          padding-top: 0.1em;
+          padding-left: 0.2em;
+          padding-bottom: 0.2em;
+          background: linear-gradient(to right, #917863 10%, transparent 44%);
+          position: relative;
+          z-index: 1;
+        }
+        h1 {
+          position: absolute;
+          left: 20%;
+          font-size: 28em;
+          font-family: serif;
+          color: white;
+          bottom: 0;
+          font-weight: bold;
+          transform: translateY(1rem);
+          z-index: 0;
+        }
+      }
+      .third-title {
+        margin-bottom: 2em;
+        p {
+          font-size: 4em;
+          font-family: Simsun, serif;
+          color: #917863;
+          line-height: 1.4;
+          letter-spacing: 0.1em;
+        }
+      }
+      .product-content {
+        font-size: 2.4em;
+        line-height: 2;
+        color: #333;
+      }
+      .tip {
+        font-size: 1em;
+        line-height: 2;
+        margin-top: 2em;
+      }
+      .point {
+        font-size: 0.5em;
+        vertical-align: super;
+      }
+    }
+
+    .details-container {
+      width: 90%;
+      margin: 0 auto;
+      background: rgba($color: #fff, $alpha: 0.5);
+      padding: 4em;
+      box-sizing: border-box;
+      .detail {
+        margin-bottom: 4em;
+        h2 {
+          font-family: serif;
+          font-size: 3.6em;
+          color: #7f612b;
+          margin-bottom: 0.8em;
+        }
+        h4 {
+          font-family: serif;
+          font-size: 2.8em;
+          color: #917863;
+          padding-left: 2em;
+          position: relative;
+          margin-bottom: 0.4em;
+          &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 1.5em;
+            height: 1px;
+            background-color: #7f612b;
+            margin-right: 0.5em;
+            left: 0;
+            top: 50%;
+          }
+        }
+        p {
+          font-size: 2em;
+          line-height: 1.6;
+          letter-spacing: 0.1em;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+  .footer {
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 2;
+    position: relative;
+    h4 {
+      font-size: 2.6em;
+      font-family: serif;
+      color: white;
+      line-height: 1.4;
+      background: linear-gradient(
+        to right,
+        white 0%,
+        #40abbb 20%,
+        #40abbb 50%,
+        #40abbb 80%,
+        white 100%
+      );
+      padding: 0.6em 0;
+      margin-bottom: 1em;
+    }
+    p {
+      font-size: 1.8em;
+    }
+  }
+}

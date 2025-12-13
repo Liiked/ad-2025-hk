@@ -1,0 +1,530 @@
+$defaultColor: #eee;
+$redColor: #b41c22;
+$lightBlue: #e7f1fa;
+$redFontColor: #e1332c;
+$grayFontColor: #4b4e53;
+
+// 公共
+.red-text {
+  color: $redColor;
+}
+.text-small {
+  font-size: 24px;
+}
+.text-size-m {
+  font-size: 48px;
+}
+.text-size-l {
+  font-size: 64px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+.tag-blue {
+  background-color: #d6e8ff;
+  border-radius: 2em;
+  padding: 24px;
+}
+
+.top-m-2 {
+  margin-top: 32px;
+}
+.bottom-m-2 {
+  margin-bottom: 32px;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #323849;
+  img {
+    max-width: 100%;
+  }
+}
+
+.header {
+  position: relative;
+  height: 1680px;
+  width: 100%;
+  z-index: 1;
+  .bk-1 {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    max-width: 100%;
+  }
+  .top-content {
+    display: flex;
+    padding: 128px 64px 32px 64px;
+    .left {
+      .title {
+        font-family: "Simsun";
+        color: #323849;
+        font-size: 46px;
+        letter-spacing: -2px;
+        line-height: 1.4;
+      }
+      .sub-title {
+        font-family: "Simsun";
+        color: #323849;
+        font-size: 38px;
+        position: relative;
+        z-index: 10;
+        margin-top: 16px;
+        h4 {
+          padding: 4px 12px;
+        }
+        &::after {
+          position: absolute;
+          top: 0;
+          content: "";
+          width: 4.6em;
+          height: 100%;
+          background-color: rgba($color: #fff, $alpha: 0.5);
+          transform: skewX(-14deg);
+          z-index: -1;
+        }
+      }
+    }
+    .right {
+      flex-shrink: 0;
+      margin-left: 80px;
+      > img {
+        width: 178px;
+      }
+    }
+  }
+  .bottom-content {
+    margin-top: 1026px;
+    .description {
+      visibility: hidden;
+      margin-left: 60%;
+      font-size: 22px;
+      color: #323849;
+      line-height: 1.5;
+    }
+    .logo {
+      margin-top: 140px;
+      margin-left: 800px;
+      img {
+        width: 236px;
+      }
+    }
+  }
+}
+.activity {
+  width: 1000px;
+  margin: 0 auto;
+  .head {
+    position: relative;
+    z-index: 1;
+    img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+    .description {
+      padding-top: 76px;
+      text-align: center;
+      font-size: 36px;
+      color: #323849;
+      line-height: 1.6;
+      .additional-description {
+        font-size: 28px;
+        margin-top: 20px;
+      }
+    }
+  }
+  .body {
+    background-color: #e7f1fa;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    & > img {
+      width: 100%;
+    }
+  }
+  .foot {
+    background-color: white;
+    padding: 32px;
+    .activity-shop-name {
+      font-size: 32px;
+      padding: 8px 18px;
+      border-radius: 1em;
+      width: 4em;
+      text-align: center;
+      background-color: $lightBlue;
+    }
+    ol {
+      margin-top: 32px;
+      list-style: initial;
+      font-size: 24px;
+      margin-left: 16px;
+      li {
+        margin-bottom: 32px;
+      }
+    }
+  }
+  .product-card {
+    padding: 54px;
+    padding-bottom: 0;
+    width: 90%;
+    .title {
+      background-color: #fff;
+      font-size: 34px;
+      border-radius: 1em;
+      width: 4em;
+      padding: 8px;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+    .pic {
+      text-align: center;
+      margin-top: 64px;
+      .extra-description {
+        font-family: "Simsun";
+        font-size: 48px;
+        margin: 40px auto;
+        line-height: 1.4;
+      }
+      .activity-1 {
+        width: 760px;
+      }
+      .activity-2 {
+        width: 760px;
+      }
+    }
+    .content {
+      ol {
+        list-style: initial;
+        font-size: 24px;
+        color: #33363b;
+        line-height: 1.6;
+        li {
+          font-size: 24px;
+          margin-bottom: 32px;
+          &:last-child {
+            margin-bottom: 16px;
+          }
+        }
+      }
+      p {
+        font-size: 24px;
+        line-height: 1.6;
+      }
+    }
+    &:last-child {
+      padding-bottom: 54px;
+    }
+  }
+}
+
+.description-film-history {
+  background-color: $lightBlue;
+  border-radius: 64px;
+  margin-top: 80px;
+  padding: 64px 32px 64px 32px;
+  .part-title {
+    text-align: center;
+    img {
+      width: 76%;
+    }
+    h4 {
+      margin-top: 16px;
+      font-size: 36px;
+      letter-spacing: 2px;
+    }
+  }
+  .part-main {
+    margin-top: 120px;
+  }
+  .parts {
+    text-align: center;
+    margin-bottom: 96px;
+    > .title {
+      display: flex;
+      align-items: baseline;
+      padding-bottom: 32px;
+      position: relative;
+      margin-bottom: 64px;
+
+      img {
+        width: 126px;
+      }
+      h2 {
+        color: $redFontColor;
+        font-size: 66px;
+        margin-left: 32px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #666, transparent);
+        width: 100%;
+        bottom: -2px;
+      }
+    }
+    > .body {
+      p {
+        font-size: 36px;
+        line-height: 1.6;
+        &.text-small {
+          font-size: 22px;
+          margin-top: 16px;
+        }
+      }
+      img {
+        width: 100%;
+      }
+      .special-addition {
+        width: 500px;
+        margin-top: 64px;
+      }
+      .down-arrow {
+        width: 300px;
+      }
+    }
+    > .descript {
+    }
+  }
+}
+
+.description-astalift {
+  text-align: center;
+  margin-top: 64px;
+  padding-bottom: 160px;
+  // background: url(@/assets/imgs/bottom_back_top_part.jpg) bottom no-repeat,
+  //   linear-gradient(0deg, #d7e8fc 50%, #d7e8fc 20%, #cbd9ee);
+  // background-size: contain;
+
+  .product-detail-card {
+    width: 1000px;
+    margin: 0 auto;
+    border: 2px solid rgba($color: #fff, $alpha: 0.5);
+    border-radius: 64px;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    background-image: url("./assets/imgs/illustration_backgroud.png");
+    background-repeat: no-repeat;
+    box-shadow: inset #bfc9d1 0px 0px 10px;
+    padding-bottom: 32px;
+    margin-bottom: 64px;
+    .title-part {
+      position: relative;
+      height: 84px;
+      z-index: 1;
+      margin-bottom: 64px;
+
+      .product-box-background {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        &.box-1 {
+          width: 620px;
+        }
+        &.box-2 {
+          width: 680px;
+        }
+      }
+      h4 {
+        font-size: 42px;
+        padding-top: 20px;
+        font-family: "Simsun";
+      }
+    }
+    .body-part {
+      .product-column {
+        display: flex;
+        .column-item {
+          margin-bottom: 24px;
+          width: 50%;
+          .column-text {
+            font-size: 24px;
+            line-height: 2;
+          }
+        }
+      }
+      .product-1 {
+        width: 470px;
+      }
+      .product-2 {
+        width: 116px;
+      }
+      ol {
+        color: $grayFontColor;
+        list-style: initial;
+        font-size: 32px;
+        text-align: left;
+        line-height: 1.6;
+        margin-left: 64px;
+        margin-right: 32px;
+      }
+      .illustration {
+        width: 800px;
+      }
+    }
+  }
+}
+.description-assist-food {
+  text-align: center;
+  margin-top: 64px;
+  padding-bottom: 32px;
+
+  .assist-food-title {
+    margin-bottom: 80px;
+  }
+
+  .product-detail-card {
+    width: 1000px;
+    margin: 0 auto;
+    border: 2px solid rgba($color: #fff, $alpha: 0.5);
+    border-radius: 64px;
+    background-image: url("./assets/imgs/illustration_backgroud.png");
+    background-repeat: no-repeat;
+    background-color: #f2f7ff;
+    box-shadow: inset #d5e7fe 0px 0px 10px;
+    padding-bottom: 64px;
+    margin-bottom: 64px;
+    .title-part {
+      position: relative;
+      height: 84px;
+      z-index: 1;
+      margin-bottom: 64px;
+
+      .product-box-background {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        &.box-1 {
+          width: 620px;
+        }
+        &.box-2 {
+          width: 680px;
+        }
+      }
+      h4 {
+        font-size: 42px;
+        padding-top: 20px;
+        font-family: "Simsun";
+      }
+    }
+    .body-part {
+      .product-1 {
+        width: 260px;
+        margin-bottom: -100px;
+      }
+      .food-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        h2 {
+          margin-bottom: 26px;
+        }
+      }
+      .product-2 {
+        width: 96px;
+      }
+
+      .illustration {
+        width: 800px;
+      }
+    }
+  }
+}
+
+.company-intro {
+  text-align: center;
+  padding-bottom: 80px;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 64px;
+  background-color: white;
+  .company-pic {
+    width: 100%;
+  }
+  .company-desc {
+    font-size: 32px;
+    margin-top: 24px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 2px;
+  }
+}
+
+.shop-list {
+  .shop-title {
+    text-align: center;
+  }
+  .shop-sect {
+    width: 60%;
+    margin: 0 auto;
+    h4 {
+      max-width: 10em;
+      font-size: 28px;
+      padding: 6px 12px;
+      text-align: center;
+      background-color: white;
+      border: 1px solid $redColor;
+      box-shadow: $redColor 2px 2px 0;
+      margin-bottom: 32px;
+    }
+    .list {
+      .list-item {
+        background-color: white;
+        box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.2);
+        padding: 16px;
+        margin-bottom: 32px;
+        .list-head {
+          margin-bottom: 16px;
+          img {
+            width: 100%;
+          }
+        }
+        .location {
+          display: flex;
+          align-items: center;
+          background-color: $lightBlue;
+          padding: 4px;
+          border-radius: 1em;
+          font-size: 18px;
+          max-width: 80%;
+          margin-bottom: 8px;
+          img {
+            width: 16px;
+            margin-right: 4px;
+          }
+        }
+        p {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}
+
+.bottom-logo {
+  padding-top: 60px;
+  padding-bottom: 180px;
+  text-align: center;
+  img {
+    width: 220px;
+  }
+}
+
+.bottom-background-area {
+  background: url(@/assets/imgs/bottom_background.png) 20% 80% no-repeat,
+    linear-gradient(180deg, #cbd9ee 10%, #d5e7fe 15%);
+  background-position: bottom;
+  background-size: contain;
+}
