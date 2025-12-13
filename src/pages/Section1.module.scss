@@ -3,7 +3,7 @@
   height: 1880px;
   width: 100%;
   z-index: 1;
-  padding-bottom: 10rem;
+  padding-bottom: 2rem;
   .bg {
     position: absolute;
     top: 0;
@@ -12,7 +12,7 @@
     max-width: 100%;
   }
   .grid-pic {
-    width: 48%;
+    width: 90%;
   }
   .header {
     text-align: center;
@@ -29,7 +29,7 @@
   .content {
     text-align: center;
     .grid-bottom {
-      margin-top: -12em;
+      width: 86%;
       z-index: 2;
       position: relative;
     }

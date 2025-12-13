@@ -1,33 +1,20 @@
-import bg from "../assets/newImgs/sec1/background.png";
-import pic1 from "../assets/newImgs/sec1/1.png";
-import pic2 from "../assets/newImgs/sec1/2.png";
-import pic7 from "../assets/newImgs/sec1/7.png";
-import pic3 from "../assets/newImgs/sec1/3.png";
-import pic4 from "../assets/newImgs/sec1/4.png";
-import pic5 from "../assets/newImgs/sec1/5.png";
+import bg from "../assets/hkImgs/bk_1.png";
+import pic1 from "../assets/hkImgs/product_1.png";
+import pic2 from "../assets/hkImgs/product_1_1.png";
+import pic3 from "../assets/hkImgs/product_1_2.png";
 import styles from "./Section1.module.scss";
 import classnames from "classnames";
 export default function Sec1() {
   return (
     <div className={styles["section"]}>
       <img src={bg} alt="" className={styles["bg"]} />
-      <section className={styles["header"]}>
-        <img src={pic1} alt="" />
-        <h2>
-          專注於「當下」的濃密科學。
-          <br />
-          從此刻開始，感受極致精萃的修護一滴。
-        </h2>
-      </section>
       <section className={styles["content"]}>
-        <img src={pic2} style={{ marginBottom: "-10em" }} alt="" />
         <section className={styles["grid"]}>
-          <img className={styles["grid-pic"]} src={pic5} alt="" />
+          <img src={pic1} style={{ marginTop: "6em", width: "90%" }} alt="" />
           <img
             className={styles["grid-pic"]}
-            style={{ marginLeft: "-5em", transform: "translate(0px, 1.8em)" }}
-            src={pic4}
-            alt=""
+            src={pic2}
+            style={{ marginTop: "-2em", marginBottom: "2em", width: "96%" }}
           />
         </section>
         <img
@@ -37,7 +24,6 @@ export default function Sec1() {
         />
       </section>
       <section className={styles["footer"]}>
-        <img src={pic7} style={{ marginTop: "-2em" }} alt="" />
         <div className={styles["desc"]}>
           <p>*1 整肌成分 胺基乙醯丙酸 (5-ALA)</p>
           <p>*2 整肌成分 苯乙基間苯二酚 (W377)</p>
