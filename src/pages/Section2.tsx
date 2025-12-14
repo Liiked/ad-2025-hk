@@ -11,7 +11,7 @@ import scroll3 from "../assets/hkImgs/scroll_3.png";
 import scroll4 from "../assets/hkImgs/scroll_4.png";
 import logo from "../assets/hkImgs/logo.png";
 import styles from "./Section2.module.scss";
-const PlayInterval = 5000 * 10; // 自动轮播间隔时间（毫秒）
+const PlayInterval = 2000; // 自动轮播间隔时间（毫秒）
 
 export default function Sec2() {
   const scrollRef = useRef<HTMLDivElement>(null);
