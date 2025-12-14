@@ -75,7 +75,7 @@ export default function Sec2() {
         let transformX = "0em";
         let transformY = "0em";
         if (isLast) {
-          transformX = "-2em";
+          transformX = "0em";
         }
         if (isFirst) {
           transformY = "-1em";
