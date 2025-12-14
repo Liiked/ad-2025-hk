@@ -19,7 +19,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import classNames from "classnames";
 
-const PlayInterval = 3000 * 20; // 自动轮播间隔时间（毫秒）
+const PlayInterval = 2000; // 自动轮播间隔时间（毫秒）
 
 export default function Sec2() {
   const swiperRef = useRef<any>(null);
