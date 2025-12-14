@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import bg2 from "../assets/hkImgs/bk_2.png";
 import pic1 from "../assets/hkImgs/product_2_1.png";
 import pic2 from "../assets/hkImgs/product_2_2.png";
