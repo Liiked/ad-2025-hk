@@ -11,7 +11,7 @@ import scroll3 from "../assets/hkImgs/scroll_3.png";
 import scroll4 from "../assets/hkImgs/scroll_4.png";
 import logo from "../assets/hkImgs/logo.png";
 import styles from "./Section2.module.scss";
-const PlayInterval = 2000; // 自动轮播间隔时间（毫秒）
+const PlayInterval = 2000 * 20; // 自动轮播间隔时间（毫秒）
 
 export default function Sec2() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -78,7 +78,10 @@ export default function Sec2() {
         if (isLast) {
           // 判断是否是iphone 手机，因为iphone 对translateX 有bug
           const isIphone = /iPhone/.test(navigator.userAgent);
-          transformX = isIphone ? "-4em" : "2em";
+          if (isIphone) {
+            item.style.marginLeft = "4em";
+          }
+          transformX = isIphone ? "-2em" : "-2em";
         }
         if (isFirst) {
           transformY = "-1em";
