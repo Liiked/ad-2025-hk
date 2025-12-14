@@ -101,22 +101,18 @@
       margin-left: 2em;
       scroll-snap-align: center;
       will-change: transform, opacity, filter;
-      transition: transform 0.4s ease-out, opacity 0.4s ease-out,
-        filter 0.4s ease-out;
-      cursor: grab;
-      opacity: 1;
-      transform: scale(1);
-      filter: brightness(1) saturate(1);
-
-      &:active {
-        cursor: grabbing;
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
-      }
-
-      &:hover {
-        transform: scale(1.03);
-      }
+    }
+    .scroll-item-1 {
+      margin-top: -0.5em;
+    }
+    .scroll-item-2 {
+      margin-top: 1em;
+    }
+    .scroll-item-3 {
+      margin-top: 0em;
+    }
+    .scroll-item-4 {
+      margin-top: 0em;
     }
   }
   .footer {

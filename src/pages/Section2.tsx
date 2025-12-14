@@ -11,158 +11,20 @@ import scroll3 from "../assets/hkImgs/scroll_3.png";
 import scroll4 from "../assets/hkImgs/scroll_4.png";
 import logo from "../assets/hkImgs/logo.png";
 import styles from "./Section2.module.scss";
-const PlayInterval = 2000 * 20; // 自动轮播间隔时间（毫秒）
+
+// 导入Swiper库
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
+import classNames from "classnames";
+
+const PlayInterval = 3000 * 20; // 自动轮播间隔时间（毫秒）
 
 export default function Sec2() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const swiperRef = useRef<any>(null);
   const observerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(currentIndex);
-  const autoScrollIntervalRef = useRef<number | null>(null);
-
-  // 节流函数 - 优化性能
-  const throttle = (func: (...args: unknown[]) => unknown, limit: number) => {
-    let inThrottle: boolean;
-    return function (this: unknown, ...args: unknown[]) {
-      if (!inThrottle) {
-        func.apply(this, args);
-        inThrottle = true;
-        setTimeout(() => (inThrottle = false), limit);
-      }
-    };
-  };
-
-  // 动态滚动效果
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!scrollRef.current) return;
-
-      const scrollItems = scrollRef.current.querySelectorAll<HTMLImageElement>(
-        `.${styles["scroll-item"]}`
-      );
-      const viewportWidth = window.innerWidth;
-
-      scrollItems.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-
-        // 检查元素是否在视口中
-        if (rect.right < 0 || rect.left > viewportWidth) return;
-
-        // 计算项目在视口中的位置（更精确的计算）
-        const elementCenter = rect.left + rect.width / 2;
-        const viewportCenter = viewportWidth / 2;
-        const distanceFromCenter = Math.abs(elementCenter - viewportCenter);
-
-        // 计算影响因子（0-1之间）
-        const influence =
-          1 - Math.min(distanceFromCenter / (viewportWidth / 2), 0.8);
-
-        // 基于位置计算动态效果
-        const opacity = 0.6 + influence * 0.4; // 0.6 - 1.0
-        const scale = 0.9 + influence * 0.15; // 0.9 - 1.05
-        const brightness = 0.8 + influence * 0.3; // 0.8 - 1.1
-        // const translateY = (1 - influence) * 10; // 0 - 10px
-        const saturate = 0.9 + influence * 0.2; // 0.9 - 1.1
-
-        // 应用动态样式
-
-        // 最后一个应用x轴偏移
-        const isLast = item === scrollItems[scrollItems.length - 1];
-        // 第一个应用Y轴偏移
-        const isFirst = item === scrollItems[0];
-
-        let transformX = "0em";
-        let transformY = "0em";
-
-        if (isLast) {
-          // 判断是否是iphone 手机，因为iphone 对translateX 有bug
-          const isIphone = /iPhone/.test(navigator.userAgent);
-          if (isIphone) {
-            item.style.marginLeft = "4em";
-          }
-          transformX = isIphone ? "-2em" : "-2em";
-        }
-        if (isFirst) {
-          transformY = "-1em";
-        }
-
-        item.style.opacity = opacity.toString();
-        item.style.transform = `scale(${
-          scale > 1 ? 1 : scale
-        }) translate(${transformX}, ${transformY})`;
-        item.style.filter = `brightness(${
-          brightness > 1 ? 1 : brightness
-        }) saturate(${saturate > 1 ? 1 : saturate})`;
-      });
-    };
-
-    // 使用节流函数优化滚动事件（约60fps）
-    const throttledHandleScroll = throttle(handleScroll, 16);
-
-    // 添加滚动事件监听器
-    const scrollElement = scrollRef.current;
-    if (scrollElement) {
-      scrollElement.addEventListener("scroll", throttledHandleScroll);
-      scrollElement.addEventListener("touchmove", throttledHandleScroll);
-
-      // 初始加载时触发一次
-      handleScroll();
-    }
-
-    // 添加窗口大小变化事件监听器
-    const handleResize = throttle(handleScroll, 16);
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      if (scrollElement) {
-        scrollElement.removeEventListener("scroll", throttledHandleScroll);
-        scrollElement.removeEventListener("touchmove", throttledHandleScroll);
-      }
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // 自动轮播逻辑
-  const startAutoScroll = () => {
-    if (!scrollRef.current) return;
-
-    const scrollElement = scrollRef.current;
-    const scrollItems = scrollElement.querySelectorAll<HTMLImageElement>(
-      `.${styles["scroll-item"]}`
-    );
-    const totalItems = scrollItems.length;
-
-    autoScrollIntervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        const nextIndex = (prevIndex + 1) % totalItems;
-
-        // 计算下一个项目的位置并滚动
-        if (scrollElement && scrollItems[nextIndex]) {
-          // 获取滚动容器的滚动位置
-          const scrollLeft = scrollElement.scrollLeft;
-          // 获取下一个项目相对于容器的位置
-          const itemOffsetLeft = scrollItems[nextIndex].offsetLeft;
-          // 计算需要滚动的距离
-          const scrollDistance = itemOffsetLeft - scrollLeft;
-
-          scrollElement.scrollTo({
-            left: scrollLeft + scrollDistance,
-            behavior: "smooth",
-          });
-        }
-
-        return nextIndex;
-      });
-    }, PlayInterval);
-  };
-
-  const stopAutoScroll = () => {
-    if (autoScrollIntervalRef.current) {
-      clearInterval(autoScrollIntervalRef.current);
-      autoScrollIntervalRef.current = null;
-    }
-  };
 
   // 检测轮播区域是否进入视口
   useEffect(() => {
@@ -190,15 +52,15 @@ export default function Sec2() {
 
   // 根据可见性控制自动轮播
   useEffect(() => {
-    if (isVisible) {
-      startAutoScroll();
-    } else {
-      stopAutoScroll();
+    if (swiperRef.current) {
+      // ts-ignore
+      const swiper = (swiperRef.current as any).swiper;
+      if (isVisible) {
+        swiper.autoplay.start();
+      } else {
+        swiper.autoplay.stop();
+      }
     }
-
-    return () => {
-      stopAutoScroll();
-    };
   }, [isVisible]);
 
   return (
@@ -239,19 +101,61 @@ export default function Sec2() {
         />
 
         <div ref={observerRef}>
-          <div
-            className={styles["scroll"]}
-            ref={scrollRef}
-            onTouchStart={stopAutoScroll}
-            onTouchEnd={() => isVisible && startAutoScroll()}
-            onMouseDown={stopAutoScroll}
-            onMouseUp={() => isVisible && startAutoScroll()}
-            onMouseLeave={() => isVisible && startAutoScroll()}
-          >
-            <img className={styles["scroll-item"]} src={scroll1} alt="" />
-            <img className={styles["scroll-item"]} src={scroll2} alt="" />
-            <img className={styles["scroll-item"]} src={scroll3} alt="" />
-            <img className={styles["scroll-item"]} src={scroll4} alt="" />
+          <div className={styles["scroll"]}>
+            <Swiper
+              ref={swiperRef}
+              modules={[Autoplay]}
+              spaceBetween={16}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: PlayInterval,
+                disableOnInteraction: true,
+                pauseOnMouseEnter: true,
+              }}
+              className={styles["swiper-container"]}
+            >
+              <SwiperSlide className={styles["swiper-slide"]}>
+                <img
+                  className={classNames(
+                    styles["scroll-item"],
+                    styles["scroll-item-1"]
+                  )}
+                  src={scroll1}
+                  alt=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className={styles["swiper-slide"]}>
+                <img
+                  className={classNames(
+                    styles["scroll-item"],
+                    styles["scroll-item-2"]
+                  )}
+                  src={scroll2}
+                  alt=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className={styles["swiper-slide"]}>
+                <img
+                  className={classNames(
+                    styles["scroll-item"],
+                    styles["scroll-item-3"]
+                  )}
+                  src={scroll3}
+                  alt=""
+                />
+              </SwiperSlide>
+              <SwiperSlide className={styles["swiper-slide"]}>
+                <img
+                  className={classNames(
+                    styles["scroll-item"],
+                    styles["scroll-item-4"]
+                  )}
+                  src={scroll4}
+                  alt=""
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </section>
