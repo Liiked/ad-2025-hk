@@ -74,8 +74,11 @@ export default function Sec2() {
 
         let transformX = "0em";
         let transformY = "0em";
+
         if (isLast) {
-          transformX = "0em";
+          // 判断是否是iphone 手机，因为iphone 对translateX 有bug
+          const isIphone = /iPhone/.test(navigator.userAgent);
+          transformX = isIphone ? "-4em" : "2em";
         }
         if (isFirst) {
           transformY = "-1em";
