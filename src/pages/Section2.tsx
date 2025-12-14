@@ -11,6 +11,7 @@ import scroll3 from "../assets/hkImgs/scroll_3.png";
 import scroll4 from "../assets/hkImgs/scroll_4.png";
 import logo from "../assets/hkImgs/logo.png";
 import styles from "./Section2.module.scss";
+const PlayInterval = 5000 * 10; // 自动轮播间隔时间（毫秒）
 
 export default function Sec2() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -61,14 +62,29 @@ export default function Sec2() {
         const opacity = 0.6 + influence * 0.4; // 0.6 - 1.0
         const scale = 0.9 + influence * 0.15; // 0.9 - 1.05
         const brightness = 0.8 + influence * 0.3; // 0.8 - 1.1
-        const translateY = (1 - influence) * 10; // 0 - 10px
+        // const translateY = (1 - influence) * 10; // 0 - 10px
         const saturate = 0.9 + influence * 0.2; // 0.9 - 1.1
 
         // 应用动态样式
+
+        // 最后一个应用x轴偏移
+        const isLast = item === scrollItems[scrollItems.length - 1];
+        // 第一个应用Y轴偏移
+        const isFirst = item === scrollItems[0];
+
+        let transformX = "0em";
+        let transformY = "0em";
+        if (isLast) {
+          transformX = "-2em";
+        }
+        if (isFirst) {
+          transformY = "-1em";
+        }
+
         item.style.opacity = opacity.toString();
         item.style.transform = `scale(${
           scale > 1 ? 1 : scale
-        }) translateY(${translateY}px)`;
+        }) translate(${transformX}, ${transformY})`;
         item.style.filter = `brightness(${
           brightness > 1 ? 1 : brightness
         }) saturate(${saturate > 1 ? 1 : saturate})`;
@@ -132,7 +148,7 @@ export default function Sec2() {
 
         return nextIndex;
       });
-    }, 5000);
+    }, PlayInterval);
   };
 
   const stopAutoScroll = () => {
@@ -229,7 +245,6 @@ export default function Sec2() {
             <img className={styles["scroll-item"]} src={scroll1} alt="" />
             <img className={styles["scroll-item"]} src={scroll2} alt="" />
             <img className={styles["scroll-item"]} src={scroll3} alt="" />
-
             <img className={styles["scroll-item"]} src={scroll4} alt="" />
           </div>
         </div>

@@ -77,15 +77,14 @@
     .scroll {
       width: 60%;
       margin: 0 auto;
+      margin-left: 16em;
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-padding: 16px;
-      gap: 16px;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      -ms-overflow-style: none;
       -webkit-scroll-snap-stop: always;
       scroll-snap-stop: always;
 
